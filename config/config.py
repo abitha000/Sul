@@ -224,7 +224,7 @@ PING_IMG_URL = getenv(
 
     "PING_IMG_URL",
 
-    "https://telegra.ph/file/0975c35eb92433a9d9048.jpg",
+    "https://telegra.ph/file/e678853e1fcce9562babe.jpg",
 
 )
 
@@ -232,7 +232,7 @@ PLAYLIST_IMG_URL = getenv(
 
     "PLAYLIST_IMG_URL",
 
-    "https://telegra.ph/file/e8827f034e19d48ab3b53.jpg",
+    "https://telegra.ph/file/21eb4be8a57c14c3c744f.jpg",
 
 )
 
