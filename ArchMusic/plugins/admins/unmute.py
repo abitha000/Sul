@@ -35,6 +35,10 @@ async def unmute_admin(Client, message: Message, _, chat_id):
         return await message.reply_text(_["admin_7"])
     await mute_off(chat_id)
     await ArchMusic.unmute_stream(chat_id)
+    photo_url = "https://telegra.ph/file/cfa5b57372499a45248be.jpg"  # Replace with the URL of the photo you want to send
+    await message.reply_photo(
+        photo=photo_url        
+    )
     await message.reply_text(
         _["admin_8"].format(message.from_user.mention)
     )
