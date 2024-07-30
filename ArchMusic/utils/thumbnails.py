@@ -90,7 +90,7 @@ async def gen_thumb(videoid):
             circle = Image.open("assets/circle.png")
 
             im = circle
-            im = im.convert('RGBA')
+            im = im.convert('RGB')
             color = make_col()
 
             data = np.array(im)
@@ -195,7 +195,7 @@ async def gen_qthumb(videoid):
             circle = Image.open("assets/circle.png")
 
             im = circle
-            im = im.convert('RGBA')
+            im = im.convert('RGB')
             color = make_col()
 
             data = np.array(im)
