@@ -33,6 +33,10 @@ async def stop_music(cli, message: Message, _, chat_id):
         return await message.reply_text(_["general_2"])
     await ArchMusic.stop_stream(chat_id)
     await set_loop(chat_id, 0)
+    photo_url = "https://telegra.ph/file/958e692d46bfa18b0190c.jpg"  # Replace with the URL of the photo you want to send
+    await message.reply_photo(
+        photo=photo_url        
+    )
     await message.reply_text(
         _["admin_9"].format(message.from_user.mention)
     )
