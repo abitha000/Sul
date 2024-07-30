@@ -35,7 +35,7 @@ async def pause_admin(cli, message: Message, _, chat_id):
         return await message.reply_text(_["admin_1"])
     await music_off(chat_id)
     await ArchMusic.pause_stream(chat_id)
-    photo_url = "https://te.legra.ph/file/10428b65648494b3c6ede.jpg"  # Replace with the URL of the photo you want to send
+    photo_url = "https://telegra.ph/file/7587e6dfaa54012abf010.jpg"  # Replace with the URL of the photo you want to send
     caption = _["admin_2"].format(message.from_user.mention)
     await message.reply_photo(
         photo=photo_url,                
