@@ -81,7 +81,7 @@ async def gen_thumb(videoid):
 
             youtube = Image.open(f"cache/thumb{videoid}.jpg")
             image1 = changeImageSize(1280, 720, youtube)
-            image2 = image1.convert("RGBA")
+            image2 = image1.convert("RGB")
             background = image2.filter(filter=ImageFilter.BoxBlur(30))
             enhancer = ImageEnhance.Brightness(background)
             background = enhancer.enhance(0.6)
@@ -103,7 +103,7 @@ async def gen_thumb(videoid):
             circle = im2
 
             image3 = image1.crop((280, 0, 1000, 720))
-            lum_img = Image.new('L', [720, 720], 0)
+            lum_img = Image.new('RGB', [720, 720],(0,0,0))
             draw = ImageDraw.Draw(lum_img)
             draw.pieslice([(0, 0), (720, 720)], 0, 360, fill=255, outline="white")
             img_arr = np.array(image3)
@@ -112,7 +112,7 @@ async def gen_thumb(videoid):
             image3 = Image.fromarray(final_img_arr)
             image3 = image3.resize((600, 600))
 
-            image2.paste(image3, (50, 70), mask=image3)
+            image2.paste(image3, (50, 70))
             image2.paste(circle, (0, 0), mask=circle)
 
             font1 = ImageFont.truetype('assets/font.ttf', 30)
@@ -138,7 +138,7 @@ async def gen_thumb(videoid):
 
             image2 = ImageOps.expand(image2, border=20, fill=make_col())
             image2 = image2.convert('RGB')
-            image2.save(f"cache/{videoid}.jpg")
+            image2.convert('RGB').save(f"cache/{videoid}.jpg")
             file = f"cache/{videoid}.jpg"
             return file
     except Exception as e:
@@ -186,7 +186,7 @@ async def gen_qthumb(videoid):
 
             youtube = Image.open(f"cache/thumb{videoid}.jpg")
             image1 = changeImageSize(1280, 720, youtube)
-            image2 = image1.convert("RGBA")
+            image2 = image1.convert("RGB")
             background = image2.filter(filter=ImageFilter.BoxBlur(30))
             enhancer = ImageEnhance.Brightness(background)
             background = enhancer.enhance(0.6)
@@ -208,7 +208,7 @@ async def gen_qthumb(videoid):
             circle = im2
 
             image3 = image1.crop((280, 0, 1000, 720))
-            lum_img = Image.new('L', [720, 720], 0)
+            lum_img = Image.new('RGB', [720, 720], (0,0,0))
             draw = ImageDraw.Draw(lum_img)
             draw.pieslice([(0, 0), (720, 720)], 0, 360, fill=255, outline="white")
             img_arr = np.array(image3)
@@ -217,7 +217,7 @@ async def gen_qthumb(videoid):
             image3 = Image.fromarray(final_img_arr)
             image3 = image3.resize((600, 600))
 
-            image2.paste(image3, (50, 70), mask=image3)
+            image2.paste(image3, (50, 70))
             image2.paste(circle, (0, 0), mask=circle)
 
             font1 = ImageFont.truetype('assets/font.ttf', 30)
@@ -243,7 +243,7 @@ async def gen_qthumb(videoid):
 
             image2 = ImageOps.expand(image2, border=20, fill=make_col())
             image2 = image2.convert('RGB')
-            image2.save(f"cache/q{videoid}.jpg")
+            image2.convert('RGB').save(f"cache/q{videoid}.jpg")
             file = f"cache/q{videoid}.jpg"
             return file
     except Exception as e:
