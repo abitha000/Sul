@@ -61,9 +61,9 @@ async def gen_thumb(videoid):
                         await f.close()
 
             youtube = Image.open(f"cache/thumb{videoid}.jpg")
-            image1 = changeImageSize(1280, 720, youtube)
-            image2 = image1.LANCZOS
-            image3 = image2.convert("RGB")
+            image1 = changeImageSize(1280, 720, youtube).LANCZOS
+            #image2 = image1.LANCZOS
+            image3 = image1.convert("RGB")
             background = image3.filter(filter=ImageFilter.BoxBlur(0))
             enhancer = ImageEnhance.Brightness(background)
             background = enhancer.enhance(1.5)
