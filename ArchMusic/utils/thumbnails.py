@@ -13,10 +13,6 @@ import numpy as np
 from config import MUSIC_BOT_NAME, YOUTUBE_IMG_URL
 
 
-def make_col():
-    return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-
-
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
     heightRatio = maxHeight / image.size[1]
@@ -24,21 +20,6 @@ def changeImageSize(maxWidth, maxHeight, image):
     newHeight = int(heightRatio * image.size[1])
     newImage = image.resize((newWidth, newHeight))
     return newImage
-
-
-def truncate(text):
-    list = text.split(" ")
-    text1 = ""
-    text2 = ""
-    for i in list:
-        if len(text1) + len(i) < 30:
-            text1 += " " + i
-        elif len(text2) + len(i) < 30:
-            text2 += " " + i
-
-    text1 = text1.strip()
-    text2 = text2.strip()
-    return [text1, text2]
 
 
 async def gen_thumb(videoid):
@@ -120,22 +101,7 @@ async def gen_thumb(videoid):
             font3 = ImageFont.truetype('assets/font2.ttf', 40)
             font4 = ImageFont.truetype('assets/font2.ttf', 35)
 
-            image4 = ImageDraw.Draw(image2)
-            image4.text((960, 10), f"{MUSIC_BOT_NAME}", fill="white", font=font1, align="left")
-            image4.text((670, 150), "NOW PLAYING", fill="white", font=font2, stroke_width=2, stroke_fill="white", align="left")
-
-            title1 = truncate(title)
-            image4.text((670, 300), text=title1[0], fill="white", stroke_width=1, stroke_fill="white", font=font3, align="left")
-            image4.text((670, 350), text=title1[1], fill="white", stroke_width=1, stroke_fill="white", font=font3, align="left")
-
-            views = f"Views : {views}"
-            duration = f"Duration : {duration} Mins"
-            channel = f"Channel : {channel}"
-
-            image4.text((670, 450), text=views, fill="white", font=font4, align="left")
-            image4.text((670, 500), text=duration, fill="white", font=font4, align="left")
-            image4.text((670, 550), text=channel, fill="white", font=font4, align="left")
-
+            
             #image2 = ImageOps.expand(image2, border=20, fill=make_col())
             image2 = image2.convert('RGB')
             image2.convert('RGB').save(f"cache/{videoid}.jpg")
@@ -225,21 +191,7 @@ async def gen_qthumb(videoid):
             font3 = ImageFont.truetype('assets/font2.ttf', 40)
             font4 = ImageFont.truetype('assets/font2.ttf', 35)
 
-            image4 = ImageDraw.Draw(image2)
-            image4.text((960, 10), f"{MUSIC_BOT_NAME}", fill="white", font=font1, align="left")
-            image4.text((670, 150), "ADDED TO QUEUE", fill="white", font=font2, stroke_width=2, stroke_fill="red", align="left")
-
-            title1 = truncate(title)
-            image4.text((670, 300), text=title1[0], fill="white", stroke_width=1, stroke_fill="white", font=font3, align="left")
-            image4.text((670, 350), text=title1[1], fill="white", stroke_width=1, stroke_fill="white", font=font3, align="left")
-
-            views = f"Views : {views}"
-            duration = f"Duration : {duration} Mins"
-            channel = f"Channel : {channel}"
-
-            image4.text((670, 450), text=views, fill="white", font=font4, align="left")
-            image4.text((670, 500), text=duration, fill="white", font=font4, align="left")
-            image4.text((670, 550), text=channel, fill="white", font=font4, align="left")
+           
 
             #image2 = ImageOps.expand(image2, border=20, fill=make_col())
             image2 = image2.convert('RGB')
