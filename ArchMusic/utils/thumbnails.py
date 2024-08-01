@@ -65,7 +65,7 @@ async def gen_thumb(videoid):
             image2 = image1.convert("RGB")
             background = image2.filter(filter=ImageFilter.BoxBlur(0))
             enhancer = ImageEnhance.Brightness(background)
-            background = enhancer.enhance(5)
+            background = enhancer.enhance(2)
             image2 = background
 
             #circle = Image.open("assets/circle.png")
