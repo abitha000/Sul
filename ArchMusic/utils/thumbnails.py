@@ -87,30 +87,30 @@ async def gen_thumb(videoid):
             background = enhancer.enhance(1.1)
             image2 = background
 
-            circle = Image.open("assets/circle.png")
+            #circle = Image.open("assets/circle.png")
 
-            im = circle
-            im = im.convert('RGBA')
-            color = make_col()
+            #im = circle
+            #im = im.convert('RGBA')
+            #color = make_col()
 
-            data = np.array(im)
-            red, green, blue, alpha = data.T
+            #data = np.array(im)
+            #red, green, blue, alpha = data.T
 
-            white_areas = (red == 255) & (blue == 255) & (green == 255)
-            data[..., :-1][white_areas.T] = color
+            #white_areas = (red == 255) & (blue == 255) & (green == 255)
+            #data[..., :-1][white_areas.T] = color
 
-            im2 = Image.fromarray(data)
-            circle = im2
+            #im2 = Image.fromarray(data)
+            #circle = im2
 
-            image3 = image1.crop((280, 0, 1000, 720))
-            lum_img = Image.new('RGB', [720, 720],(0, 0, 0))
-            draw = ImageDraw.Draw(lum_img)
-            draw.pieslice([(0, 0), (720, 720)], 0, 360, fill=255, outline="white")
-            img_arr = np.array(image3)
-            lum_img_arr = np.array(lum_img)
-            final_img_arr = np.dstack((img_arr, lum_img_arr))
-            image3 = Image.fromarray(final_img_arr)
-            image3 = image3.resize((600, 600))
+            #image3 = image1.crop((280, 0, 1000, 720))
+            #lum_img = Image.new('RGB', [720, 720],(0, 0, 0))
+            #draw = ImageDraw.Draw(lum_img)
+            #draw.pieslice([(0, 0), (720, 720)], 0, 360, fill=255, outline="white")
+            #img_arr = np.array(image3)
+            #lum_img_arr = np.array(lum_img)
+            #final_img_arr = np.dstack((img_arr, lum_img_arr))
+            #image3 = Image.fromarray(final_img_arr)
+            #image3 = image3.resize((600, 600))
 
             #image2.paste(image3, (50, 70))
             #image2.paste(circle, (0, 0), mask=circle)
@@ -192,30 +192,30 @@ async def gen_qthumb(videoid):
             background = enhancer.enhance(1.1)
             image2 = background
 
-            circle = Image.open("assets/circle.png")
+            #circle = Image.open("assets/circle.png")
 
-            im = circle
-            im = im.convert('RGBA')
-            color = make_col()
+            #im = circle
+            #im = im.convert('RGBA')
+            #color = make_col()
 
-            data = np.array(im)
-            red, green, blue, alpha = data.T
+            #data = np.array(im)
+            #red, green, blue, alpha = data.T
 
-            white_areas = (red == 255) & (blue == 255) & (green == 255)
-            data[..., :-1][white_areas.T] = color
+            #white_areas = (red == 255) & (blue == 255) & (green == 255)
+            #data[..., :-1][white_areas.T] = color
 
-            im2 = Image.fromarray(data)
-            circle = im2
+            #im2 = Image.fromarray(data)
+            #circle = im2
 
-            image3 = image1.crop((280, 0, 1000, 720))
-            lum_img = Image.new('RGB', [720, 720], (0, 0, 0))
-            draw = ImageDraw.Draw(lum_img)
-            draw.pieslice([(0, 0), (720, 720)], 0, 360, fill=255, outline="white")
-            img_arr = np.array(image3)
-            lum_img_arr = np.array(lum_img)
-            final_img_arr = np.dstack((img_arr, lum_img_arr))
-            image3 = Image.fromarray(final_img_arr)
-            image3 = image3.resize((600, 600))
+            #image3 = image1.crop((280, 0, 1000, 720))
+            #lum_img = Image.new('RGB', [720, 720], (0, 0, 0))
+            #draw = ImageDraw.Draw(lum_img)
+            #draw.pieslice([(0, 0), (720, 720)], 0, 360, fill=255, outline="white")
+            #img_arr = np.array(image3)
+            #lum_img_arr = np.array(lum_img)
+            #final_img_arr = np.dstack((img_arr, lum_img_arr))
+            #image3 = Image.fromarray(final_img_arr)
+            #image3 = image3.resize((600, 600))
 
             #image2.paste(image3, (50, 70))
             #image2.paste(circle, (0, 0), mask=circle)
