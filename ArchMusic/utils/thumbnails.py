@@ -82,9 +82,9 @@ async def gen_thumb(videoid):
             youtube = Image.open(f"cache/thumb{videoid}.jpg")
             image1 = changeImageSize(1280, 720, youtube)
             image2 = image1.convert("RGB")
-            background = image2.filter(filter=ImageFilter.BoxBlur(30))
+            background = image2.filter(filter=ImageFilter.BoxBlur(0))
             enhancer = ImageEnhance.Brightness(background)
-            background = enhancer.enhance(0.6)
+            background = enhancer.enhance(1.1)
             image2 = background
 
             circle = Image.open("assets/circle.png")
@@ -112,8 +112,8 @@ async def gen_thumb(videoid):
             image3 = Image.fromarray(final_img_arr)
             image3 = image3.resize((600, 600))
 
-            image2.paste(image3, (50, 70))
-            image2.paste(circle, (0, 0), mask=circle)
+            #image2.paste(image3, (50, 70))
+            #image2.paste(circle, (0, 0), mask=circle)
 
             font1 = ImageFont.truetype('assets/font.ttf', 30)
             font2 = ImageFont.truetype('assets/font2.ttf', 70)
@@ -136,7 +136,7 @@ async def gen_thumb(videoid):
             image4.text((670, 500), text=duration, fill="white", font=font4, align="left")
             image4.text((670, 550), text=channel, fill="white", font=font4, align="left")
 
-            image2 = ImageOps.expand(image2, border=20, fill=make_col())
+            #image2 = ImageOps.expand(image2, border=20, fill=make_col())
             image2 = image2.convert('RGB')
             image2.convert('RGB').save(f"cache/{videoid}.jpg")
             file = f"cache/{videoid}.jpg"
@@ -187,9 +187,9 @@ async def gen_qthumb(videoid):
             youtube = Image.open(f"cache/thumb{videoid}.jpg")
             image1 = changeImageSize(1280, 720, youtube)
             image2 = image1.convert("RGB")
-            background = image2.filter(filter=ImageFilter.BoxBlur(30))
+            background = image2.filter(filter=ImageFilter.BoxBlur(0))
             enhancer = ImageEnhance.Brightness(background)
-            background = enhancer.enhance(0.6)
+            background = enhancer.enhance(1.1)
             image2 = background
 
             circle = Image.open("assets/circle.png")
@@ -217,8 +217,8 @@ async def gen_qthumb(videoid):
             image3 = Image.fromarray(final_img_arr)
             image3 = image3.resize((600, 600))
 
-            image2.paste(image3, (50, 70))
-            image2.paste(circle, (0, 0), mask=circle)
+            #image2.paste(image3, (50, 70))
+            #image2.paste(circle, (0, 0), mask=circle)
 
             font1 = ImageFont.truetype('assets/font.ttf', 30)
             font2 = ImageFont.truetype('assets/font2.ttf', 70)
@@ -241,7 +241,7 @@ async def gen_qthumb(videoid):
             image4.text((670, 500), text=duration, fill="white", font=font4, align="left")
             image4.text((670, 550), text=channel, fill="white", font=font4, align="left")
 
-            image2 = ImageOps.expand(image2, border=20, fill=make_col())
+            #image2 = ImageOps.expand(image2, border=20, fill=make_col())
             image2 = image2.convert('RGB')
             image2.convert('RGB').save(f"cache/q{videoid}.jpg")
             file = f"cache/q{videoid}.jpg"
